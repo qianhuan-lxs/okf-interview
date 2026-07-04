@@ -6,6 +6,7 @@
 | --- | --- |
 | [`agent`](./agent/index.md) | 8 |
 | [`mcp`](./mcp/index.md) | 7 |
+| [`observability`](./observability/index.md) | 5 |
 | [`rag`](./rag/index.md) | 9 |
 
 ## 被引用 (cited by)

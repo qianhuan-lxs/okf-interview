@@ -9,7 +9,7 @@
 | [Agent 框架选型 (ADK / LangChain / LangGraph / Spring AI)](ml-ai/agent/agent-framework-selection.md) | medium | agent-framework, langchain, langgraph, google-adk, spring-ai, selection |
 | [Chatbot → Agent 的核心跨越](ml-ai/agent/chatbot-to-agent-leap.md) | easy | chatbot, agent, concept |
 | [Multi-Agent 编排架构设计](ml-ai/agent/multi-agent-orchestration-architecture.md) | hard | multi-agent, orchestration, adk, langgraph, architecture |
-| [Skill 的含义 / 加载机制 / 自进化 (以 Claude Code 为参照)](ml-ai/agent/skill-meaning-loading-evolution.md) | hard | skill, claude-code, progressive-disclosure, filesystem-watcher, hot-reload, prompt-engineering, self-evolution |
+| [Skill 的含义 / 加载机制 / 自进化](ml-ai/agent/skill-meaning-loading-evolution.md) | medium | skill, prompt-engineering, loading, self-evolution |
 | [多 Agent 常见架构有哪些](ml-ai/agent/multi-agent-common-architectures.md) | medium | multi-agent, architecture, taxonomy |
 | [并行 Agent 失败处理 (部分成功 vs 整体失败)](ml-ai/agent/parallel-agent-failure-handling.md) | medium | multi-agent, parallel, failure-handling, resilience |
 
@@ -20,6 +20,8 @@
 - [[ml-ai/mcp/mcp-vs-skill-difference]] — MCP vs Skill 区别
 - [[ml-ai/mcp/openapi-to-mcp-auto-conversion]] — OpenAPI → MCP Tool 自动转换
 - [[ml-ai/mcp/sandbox-vs-normal-container]] — 容器化沙箱 vs 普通容器
+- [[ml-ai/observability/agent-trace-span-model]] — Agent trace span 模型 (一棵标准 trace 长什么样)
+- [[ml-ai/observability/claude-code-hooks-observability]] — Claude Code hooks 做可观测性 (事件 / 协议 / 管道模式)
 - [[system-design/bi-data-analysis-agent]] — BI 数据分析智能体设计
 - [[system-design/vertical-observation-pipeline]] — 垂直观测链路系统设计
 
