@@ -1,0 +1,4 @@
+# Optional: enables full YAML parsing in tools/okf.py.
+# Without it, the CLI falls back to a minimal single-line parser that handles
+# `key: value` and `key: [a, b, c]` (sufficient for the SPEC frontmatter).
+PyYAML>=6.0
