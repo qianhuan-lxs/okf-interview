@@ -9,7 +9,7 @@
 | [Agent 框架选型 (ADK / LangChain / LangGraph / Spring AI)](ml-ai/agent/agent-framework-selection.md) | medium | agent-framework, langchain, langgraph, google-adk, spring-ai, selection |
 | [Chatbot → Agent 的核心跨越](ml-ai/agent/chatbot-to-agent-leap.md) | easy | chatbot, agent, concept |
 | [Multi-Agent 编排架构设计](ml-ai/agent/multi-agent-orchestration-architecture.md) | hard | multi-agent, orchestration, adk, langgraph, architecture |
-| [Skill 的含义 / 加载机制 / 自进化](ml-ai/agent/skill-meaning-loading-evolution.md) | medium | skill, prompt-engineering, loading, self-evolution |
+| [Skill 的含义 / 加载机制 / 自进化 (以 Claude Code 为参照)](ml-ai/agent/skill-meaning-loading-evolution.md) | hard | skill, claude-code, progressive-disclosure, filesystem-watcher, hot-reload, prompt-engineering, self-evolution |
 | [多 Agent 常见架构有哪些](ml-ai/agent/multi-agent-common-architectures.md) | medium | multi-agent, architecture, taxonomy |
 | [并行 Agent 失败处理 (部分成功 vs 整体失败)](ml-ai/agent/parallel-agent-failure-handling.md) | medium | multi-agent, parallel, failure-handling, resilience |
 
