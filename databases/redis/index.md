@@ -1,0 +1,12 @@
+# Index — databases/redis
+
+## 题目
+
+| 标题 | 难度 | 标签 |
+| --- | --- | --- |
+| [Redis 分布式架构 (主从 / 哨兵 / Cluster)](databases/redis/redis-distributed-architecture.md) | medium | redis, replication, sentinel, cluster, ha |
+| [Redis 持久化 (RDB / AOF)](databases/redis/redis-persistence.md) | medium | redis, rdb, aof, persistence |
+| [Redis 数据类型](databases/redis/redis-data-types.md) | easy | redis, data-structure, cache |
+| [缓存雪崩 / 穿透 / 击穿](databases/redis/redis-cache-avalanche.md) | medium | redis, cache-avalanche, cache-breakdown, cache-penetration, cache |
+
+<!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

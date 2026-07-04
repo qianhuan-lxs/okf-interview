@@ -4,18 +4,18 @@
 
 | 目录 | 题目数 |
 | --- | --- |
-| [`algorithms`](./algorithms/index.md) | 1 |
-| [`backend`](./backend/index.md) | 0 |
-| [`behavioral`](./behavioral/index.md) | 0 |
-| [`concurrency`](./concurrency/index.md) | 0 |
-| [`databases`](./databases/index.md) | 0 |
-| [`devops`](./devops/index.md) | 0 |
-| [`distributed-systems`](./distributed-systems/index.md) | 0 |
-| [`frontend`](./frontend/index.md) | 0 |
-| [`languages`](./languages/index.md) | 0 |
+| [`algorithms`](./algorithms/index.md) | 2 |
+| [`backend`](./backend/index.md) | 8 |
+| [`behavioral`](./behavioral/index.md) | 11 |
+| [`concurrency`](./concurrency/index.md) | 7 |
+| [`databases`](./databases/index.md) | 15 |
+| [`devops`](./devops/index.md) | 5 |
+| [`distributed-systems`](./distributed-systems/index.md) | 9 |
+| [`frontend`](./frontend/index.md) | 3 |
+| [`languages`](./languages/index.md) | 10 |
 | [`ml-ai`](./ml-ai/index.md) | 24 |
-| [`networks`](./networks/index.md) | 0 |
+| [`networks`](./networks/index.md) | 1 |
 | [`operating-systems`](./operating-systems/index.md) | 0 |
-| [`system-design`](./system-design/index.md) | 0 |
+| [`system-design`](./system-design/index.md) | 3 |
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

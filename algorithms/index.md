@@ -4,7 +4,7 @@
 
 | 目录 | 题目数 |
 | --- | --- |
-| [`arrays-strings`](./arrays-strings/index.md) | 0 |
+| [`arrays-strings`](./arrays-strings/index.md) | 1 |
 | [`backtracking`](./backtracking/index.md) | 0 |
 | [`bit-manipulation`](./bit-manipulation/index.md) | 0 |
 | [`dynamic-programming`](./dynamic-programming/index.md) | 1 |

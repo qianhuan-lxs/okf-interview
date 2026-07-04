@@ -20,5 +20,7 @@
 - [[ml-ai/mcp/mcp-vs-skill-difference]] — MCP vs Skill 区别
 - [[ml-ai/mcp/openapi-to-mcp-auto-conversion]] — OpenAPI → MCP Tool 自动转换
 - [[ml-ai/mcp/sandbox-vs-normal-container]] — 容器化沙箱 vs 普通容器
+- [[system-design/bi-data-analysis-agent]] — BI 数据分析智能体设计
+- [[system-design/vertical-observation-pipeline]] — 垂直观测链路系统设计
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

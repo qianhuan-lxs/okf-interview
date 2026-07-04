@@ -14,6 +14,8 @@
 
 ## 被引用 (cited by)
 
+- [[devops/k8s-environment-labels-resource-management]] — K8S 环境标签 / 资源管理
+- [[distributed-systems/rate-limiting-redis-token-bucket]] — 限流方案 (令牌桶 / 漏桶 / 滑动窗口 / Redis)
 - [[ml-ai/agent/agent-framework-selection]] — Agent 框架选型 (ADK / LangChain / LangGraph / Spring AI)
 - [[ml-ai/agent/agent-function-call-mechanism]] — Agent 工具调用机制 (Function Call 原理)
 - [[ml-ai/agent/skill-meaning-loading-evolution]] — Skill 的含义 / 加载机制 / 自进化
