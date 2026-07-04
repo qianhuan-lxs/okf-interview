@@ -126,7 +126,7 @@ def iter_questions(root: Path = ROOT) -> list[Question]:
     for p in sorted(root.rglob("*.md")):
         rel = p.relative_to(root)
         parts = rel.parts
-        if parts[0] in ("_templates", "tools"):
+        if parts[0] in ("_templates", "tools", "_interviews"):
             continue
         if p.name == "index.md":
             continue
@@ -179,7 +179,7 @@ def build_index_for(dir_path: Path, questions: list[Question]) -> str:
 
     # Subdirectories
     subdirs = sorted([d for d in dir_path.iterdir() if d.is_dir() and not d.name.startswith(".")])
-    subdirs = [d for d in subdirs if d.name not in ("tools", "_templates")]
+    subdirs = [d for d in subdirs if d.name not in ("tools", "_templates", "_interviews")]
     if subdirs:
         lines.append("## 子目录")
         lines.append("")

@@ -13,7 +13,7 @@
 | [`distributed-systems`](./distributed-systems/index.md) | 0 |
 | [`frontend`](./frontend/index.md) | 0 |
 | [`languages`](./languages/index.md) | 0 |
-| [`ml-ai`](./ml-ai/index.md) | 0 |
+| [`ml-ai`](./ml-ai/index.md) | 24 |
 | [`networks`](./networks/index.md) | 0 |
 | [`operating-systems`](./operating-systems/index.md) | 0 |
 | [`system-design`](./system-design/index.md) | 0 |
