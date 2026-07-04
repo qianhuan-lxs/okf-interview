@@ -11,4 +11,8 @@
 | [Langfuse 可观测性设计 (v4 observation-centric)](ml-ai/observability/langfuse-observability-design.md) | hard | langfuse, observability, clickhouse, otel, trace-model, llmops |
 | [OpenTelemetry GenAI 语义约定 (Agent 可观测的通用语)](ml-ai/observability/opentelemetry-genai-semantic-conventions.md) | hard | opentelemetry, genai, semantic-conventions, openinference, openllmetry, tracing |
 
+## 被引用 (cited by)
+
+- [[ml-ai/agent/skill-self-evolution-hermes]] — Skill 自进化 / 自净化 (Hermes + GEPA)
+
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->
