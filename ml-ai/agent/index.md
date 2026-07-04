@@ -21,6 +21,7 @@
 - [[ml-ai/mcp/openapi-to-mcp-auto-conversion]] — OpenAPI → MCP Tool 自动转换
 - [[ml-ai/mcp/sandbox-vs-normal-container]] — 容器化沙箱 vs 普通容器
 - [[ml-ai/observability/agent-trace-span-model]] — Agent trace span 模型 (一棵标准 trace 长什么样)
+- [[ml-ai/observability/claude-code-hooks-implementation]] — Claude Code hooks 的实现机制 (两层模型 / handler / exit code / matcher)
 - [[ml-ai/observability/claude-code-hooks-observability]] — Claude Code hooks 做可观测性 (事件 / 协议 / 管道模式)
 - [[system-design/bi-data-analysis-agent]] — BI 数据分析智能体设计
 - [[system-design/vertical-observation-pipeline]] — 垂直观测链路系统设计
