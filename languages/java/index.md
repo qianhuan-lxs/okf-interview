@@ -5,8 +5,9 @@
 | 标题 | 难度 | 标签 |
 | --- | --- | --- |
 | [G1 回收器 (Region/RSet/SATB/混合回收/演进)](languages/java/g1-gc-changes.md) | hard | g1, gc, jvm, region, rset, satb, java |
-| [HashMap resize (1.7 头插法死循环 / 1.8 尾插法)](languages/java/hashmap-resize-jdk17-jdk18.md) | hard | hashmap, resize, jdk17, jdk18, concurrent-modification |
-| [HashMap vs ConcurrentHashMap](languages/java/hashmap-vs-concurrenthashmap.md) | medium | hashmap, concurrenthashmap, juc, java |
+| [HashMap resize (1.7 头插法死循环源码 / 1.8 尾插法+高位 bit rehash 优化)](languages/java/hashmap-resize-jdk17-jdk18.md) | hard | hashmap, resize, jdk17, jdk18, concurrent-modification, head-insertion, tail-insertion, java, source |
+| [HashMap vs ConcurrentHashMap (CHM 1.8 源码: CAS+synchronized 桶锁/CounterCell/forwarding)](languages/java/hashmap-vs-concurrenthashmap.md) | hard | hashmap, concurrenthashmap, juc, cas, synchronized, counter-cell, forwarding-node, java, source |
+| [HashMap 全景深讲 (hash/桶定位/put/resize/树化/0.75/2幂/扰动)](languages/java/hashmap-deep-dive.md) | hard | hashmap, hash, resize, red-black-tree, load-factor, treeify, java, source, jdk18 |
 | [JDK 17 新特性](languages/java/jdk17-new-features.md) | medium | jdk17, jvm, java, features, lts |
 | [JDK 各版本优化总览 (8→25, JVM/GC/性能)](languages/java/jdk-version-optimization-survey.md) | hard | jdk, version, gc, jvm, optimization, lts, zgc, compact-headers, java |
 | [JRE 和 JDK 的区别](languages/java/jre-vs-jdk.md) | easy | jre, jdk, java, basics |
