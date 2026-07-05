@@ -57,4 +57,4 @@ timestamp: 2026-05-26
 ## 延伸
 
 - 关联题：[[ml-ai/mcp/mcp-gateway-architecture]]
-- 关联题：[[ml-ai/agent/skill-meaning-loading-evolution]]
+- 关联题：[[ml-ai/agent/skill-what-and-why]]

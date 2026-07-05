@@ -13,7 +13,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from seed_louis_ai import q
+from ikf_writer import q
 
 DATE = "2026-07-05"
 

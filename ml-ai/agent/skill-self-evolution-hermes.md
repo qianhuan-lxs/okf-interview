@@ -11,7 +11,7 @@ role: [ai-app, sde, backend]
 companies: [OPPO, 有赞]
 source: _interviews/2026-05-louis-ai-java
 status: reviewed
-timestamp: 2026-05-26
+timestamp: 2026-07-05
 ---
 
 # Skill 自进化 / 自净化 (Hermes + GEPA)

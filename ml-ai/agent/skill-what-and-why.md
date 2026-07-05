@@ -11,7 +11,7 @@ role: [ai-app, sde, backend]
 companies: [华大制造, 广州大娱, 安克创新, OPPO, 北京用友, 有赞]
 source: _interviews/2026-05-louis-ai-java
 status: reviewed
-timestamp: 2026-05-26
+timestamp: 2026-07-05
 ---
 
 # Skill 是什么 / 包含什么 / 为什么不只是 system prompt

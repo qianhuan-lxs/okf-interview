@@ -4,7 +4,7 @@
 
 | 目录 | 题目数 |
 | --- | --- |
-| [`agent`](./agent/index.md) | 11 |
+| [`agent`](./agent/index.md) | 10 |
 | [`mcp`](./mcp/index.md) | 7 |
 | [`observability`](./observability/index.md) | 6 |
 | [`rag`](./rag/index.md) | 9 |

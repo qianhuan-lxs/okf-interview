@@ -18,7 +18,6 @@
 - [[distributed-systems/rate-limiting-redis-token-bucket]] — 限流方案 (令牌桶 / 漏桶 / 滑动窗口 / Redis)
 - [[ml-ai/agent/agent-framework-selection]] — Agent 框架选型 (ADK / LangChain / LangGraph / Spring AI)
 - [[ml-ai/agent/agent-function-call-mechanism]] — Agent 工具调用机制 (Function Call 原理)
-- [[ml-ai/agent/skill-meaning-loading-evolution]] — Skill 的含义 / 加载机制 / 自进化
 - [[ml-ai/agent/skill-self-evolution-hermes]] — Skill 自进化 / 自净化 (Hermes + GEPA)
 - [[ml-ai/agent/skill-what-and-why]] — Skill 是什么 / 包含什么 / 为什么不只是 system prompt
 

@@ -52,4 +52,4 @@ User ──→ LLM ──→ tool_calls(JSON) ──→ Runtime 执行 ──→
 ## 延伸
 
 - 关联题：[[ml-ai/mcp/mcp-protocol-understanding]]
-- 关联题：[[ml-ai/agent/skill-meaning-loading-evolution]]
+- 关联题：[[ml-ai/agent/skill-what-and-why]]

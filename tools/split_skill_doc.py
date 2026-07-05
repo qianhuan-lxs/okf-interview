@@ -5,7 +5,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from seed_louis_ai import q
+from ikf_writer import q
 
 ALL = ["华大制造", "广州大娱", "安克创新", "OPPO", "北京用友", "有赞"]
 PURIFY = ["OPPO", "有赞"]
