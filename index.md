@@ -14,7 +14,7 @@
 | [`frontend`](./frontend/index.md) | 3 |
 | [`languages`](./languages/index.md) | 14 |
 | [`ml-ai`](./ml-ai/index.md) | 32 |
-| [`networks`](./networks/index.md) | 2 |
+| [`networks`](./networks/index.md) | 3 |
 | [`operating-systems`](./operating-systems/index.md) | 0 |
 | [`system-design`](./system-design/index.md) | 3 |
 

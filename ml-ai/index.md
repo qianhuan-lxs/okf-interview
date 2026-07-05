@@ -13,6 +13,7 @@
 
 - [[devops/k8s-environment-labels-resource-management]] — K8S 环境标签 / 资源管理
 - [[distributed-systems/rate-limiting-redis-token-bucket]] — 限流方案 (令牌桶 / 漏桶 / 滑动窗口 / Redis)
+- [[networks/sse-protocol]] — SSE 协议 (规范/AI 流式输出/OpenAI vs Anthropic/SSE vs WebSocket)
 - [[system-design/bi-data-analysis-agent]] — BI 数据分析智能体设计
 - [[system-design/vertical-observation-pipeline]] — 垂直观测链路系统设计
 

@@ -19,5 +19,6 @@
 - [[databases/mysql/transaction-annotation-failure]] — 事务注解失效 / 代理层面失效解决
 - [[databases/redis/redis-cache-avalanche]] — 缓存雪崩 / 穿透 / 击穿
 - [[languages/java/template-method-pattern]] — 模板方法模式
+- [[networks/sse-protocol]] — SSE 协议 (规范/AI 流式输出/OpenAI vs Anthropic/SSE vs WebSocket)
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

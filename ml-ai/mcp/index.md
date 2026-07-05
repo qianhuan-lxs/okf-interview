@@ -20,5 +20,6 @@
 - [[ml-ai/agent/agent-function-call-mechanism]] — Agent 工具调用机制 (Function Call 原理)
 - [[ml-ai/agent/skill-self-evolution-hermes]] — Skill 自进化 / 自净化 (Hermes + GEPA)
 - [[ml-ai/agent/skill-what-and-why]] — Skill 是什么 / 包含什么 / 为什么不只是 system prompt
+- [[networks/sse-protocol]] — SSE 协议 (规范/AI 流式输出/OpenAI vs Anthropic/SSE vs WebSocket)
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->
