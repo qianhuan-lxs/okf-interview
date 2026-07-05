@@ -197,9 +197,73 @@ data: {"type":"ping"}
 
 `（注释行）保活，防代理/防火墙超时断连。
 
-### Spring 实现
-- **WebFlux**：`Flux<Event>` + `produces = TEXT_EVENT_STREAM_VALUE`（最佳，原生背压）。
-- **Spring MVC**：`SseEmitter`（异步 Servlet，老项目用）。
+### Spring 实现（MVC `SseEmitter` vs WebFlux `Flux<ServerSentEvent>`）
+
+两者底层栈完全不同，不只是 API 包装差别。
+
+**底层栈与服务器**
+| | MVC `SseEmitter` | WebFlux `Flux<ServerSentEvent>` |
+| --- | --- | --- |
+| 基础 | Servlet 3.0 异步（`AsyncContext`） | Reactive Streams / Reactor |
+| 服务器 | Tomcat/Jetty/Servlet 容器 | Netty / reactive Tomcat / Undertow |
+| 编码类 | `org.springframework.web.servlet.mvc.method.annotation.SseEmitter` | `org.springframework.http.codec.ServerSentEvent` + `ServerSentEventHttpMessageWriter` |
+
+**MVC（命令式）** —— 手动 `send`/`complete`：
+```java
+@GetMapping(value="/stream", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
+public SseEmitter stream() {
+    SseEmitter emitter = new SseEmitter(0L);   // 0 = 不超时
+    executor.execute(() -> {
+        try {
+            for (Event e : source) {
+                emitter.send(SseEmitter.event()
+                    .id(String.valueOf(e.getId()))
+                    .name("update")
+                    .data(e, MediaType.APPLICATION_JSON));
+            }
+            emitter.complete();
+        } catch (IOException ex) { emitter.completeWithError(ex); }
+    });
+    emitter.onTimeout(source::close);
+    emitter.onError(ex -> source.close());
+    return emitter;
+}
+```
+
+**WebFlux（声明式）** —— 返回 `Flux`，框架订阅：
+```java
+@GetMapping(value="/stream", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
+public Flux<ServerSentEvent<Event>> stream() {
+    return source.flux()
+        .map(e -> ServerSentEvent.builder(e)
+            .id(String.valueOf(e.getId()))
+            .event("update")
+            .build())
+        .onErrorResume(ex -> Flux.empty());
+}
+// 也可直接返回 Flux<T>，框架自动包成 ServerSentEvent
+```
+
+**8 维对比**
+| 维度 | MVC `SseEmitter` | WebFlux `Flux<ServerSentEvent>` |
+| --- | --- | --- |
+| 线程模型 | 每 connection 占一个 Servlet async slot；`send` 由任意线程调 | Netty event loop 几线程复用千万连接 |
+| **背压** | ❌ **无原生**——`send` 到慢客户端 buffer 满则阻塞或超时，需自己检测断开 | ✅ **原生 Reactor 背压沿链传**——慢客户端不 `request(n)`，上游自动限速 |
+| 取消传播 | `complete()`/`onCompletion` 手动清理 | 客户端断 → Flux `cancel` 自动传到上游（DB cursor/Kafka consumer 自动关） |
+| 错误处理 | `onError`/`onTimeout`/`completeWithError` 回调 | `onErrorResume`/`onErrorMap`/`retry` 链式操作符 |
+| 并发上限 | 受 Tomcat `maxThreads`/async slot（数百~数千） | event loop，万~十万级持久连接 |
+| 编程 | 命令式，好写好调，栈清楚 | 声明式，调试难（响应式栈跨线程） |
+| 慢客户端 | 内存风险（buffer 堆积），要自己监控断开 | 背压自然限速，无内存爆 |
+| 适合 | 已 MVC 项目、简单推送、量不大 | 高并发流式、需背压、SSE 推送网关、已 WebFlux |
+
+**2026 虚拟线程时代**
+- MVC `SseEmitter` + `spring.threads.virtual.enabled=true` → 每连接一 VT，并发上限大幅提高，但**仍无原生背压**——慢客户端问题没解决。
+- WebFlux `Flux` 的背压是协议级保证，VT 出现后仍是流式推送场景的更优解（这正是 [WebFlux 文档](backend/microservices/spring-webflux) 里说的"WebFlux 留给流式/背压"）。
+
+**选型**
+- 简单推送、已 MVC 项目、连接数不多 → `SseEmitter`。
+- 高并发流式、需要背压、SSE 推送网关、已 WebFlux → `Flux<ServerSentEvent>`。
+- AI token 流式（单请求一次响应，量不大）→ `SseEmitter` 够用；多用户聚合推送/慢客户端防护 → WebFlux。
 
 ### 鉴权痛点
 - `EventSource` 不支持自定义 header → 用 cookie（同域）或 query token（`?token=...`，有泄露风险，需短时效 + 限定路径）。
