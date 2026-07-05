@@ -16,4 +16,8 @@
 | [索引失效场景](databases/mysql/index-failure-scenarios.md) | easy | mysql, index, query-optimization, database |
 | [聚簇索引 vs 二级索引](databases/mysql/clustered-vs-secondary-index.md) | medium | mysql, clustered-index, secondary-index, covering-index, database |
 
+## 被引用 (cited by)
+
+- [[distributed-systems/2pc-3pc-protocol]] — 2PC / 3PC / XA 协议 (协调者 / prepare / 阻塞问题 / 3PC 解决了什么)
+
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

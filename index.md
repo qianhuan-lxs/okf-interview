@@ -10,7 +10,7 @@
 | [`concurrency`](./concurrency/index.md) | 27 |
 | [`databases`](./databases/index.md) | 15 |
 | [`devops`](./devops/index.md) | 5 |
-| [`distributed-systems`](./distributed-systems/index.md) | 9 |
+| [`distributed-systems`](./distributed-systems/index.md) | 16 |
 | [`frontend`](./frontend/index.md) | 3 |
 | [`languages`](./languages/index.md) | 14 |
 | [`ml-ai`](./ml-ai/index.md) | 32 |

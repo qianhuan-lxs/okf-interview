@@ -38,6 +38,7 @@
 - [[backend/microservices/spring-webflux]] — Spring WebFlux (Reactor/Mono/Flux/Netty/背压 + 2026 vs 虚拟线程)
 - [[backend/microservices/tomcat-servlet-thread-pool]] — Tomcat Servlet 线程池 (acceptCount/maxConnections/maxThreads/TaskQueue/NIO)
 - [[distributed-systems/distributed-lock-redis-vs-zk]] — 分布式锁 (Redis vs ZK)
+- [[distributed-systems/rpc-and-distributed-txn]] — RPC 调用与分布式事务 (超时/重试/幂等 / XID 透传 / 大事务 / 降级)
 - [[languages/java/hashmap-vs-concurrenthashmap]] — HashMap vs ConcurrentHashMap
 - [[languages/java/jvm-memory-structure]] — JVM 内存结构 (堆/元空间/栈/直接内存 + JDK8 永久代消失)
 - [[languages/java/jvm-object-layout-jit]] — 对象内存布局 + JIT 执行引擎 (MarkWord/指针压缩/C1C2/逃逸分析)
