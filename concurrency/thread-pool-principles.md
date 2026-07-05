@@ -53,10 +53,74 @@ timestamp: 2026-05-26
       w.unlock();
   }
   completedAtomicTask();
+  processWorkerExit(w, completedAbruptly);   // getTask 返回 null 后真正回收
   ```
 - **核心线程不会"用完就死"**——循环 `getTask()` 继续取队列任务。
-- `getTask()`：核心线程默认 `workQueue.take()`（无限阻塞）；非核心线程 `poll(keepAliveTime)`，超时返回 null → worker 退出（线程被回收）。
-- **`allowCoreThreadTimeOut(true)`**：核心线程也走 `poll` 超时逻辑，可被回收（默认 false）。
+
+### 非核心线程怎么"超时被回收"（源码级，重点）
+**关键澄清**：池里没有"核心 vs 非核心"线程的**实体身份区分**——所有 `Worker` 是同一个类，`addWorker(firstTask, core)` 的 `core` 参数只用来判定"能否创建"，创建后进同一个 `HashSet<Worker>` 没标签。回收时靠运行时数量动态判定。
+
+**核心源码 `getTask()`**：
+```java
+private Runnable getTask() {
+    boolean timedOut = false;
+    for (;;) {
+        int c = ctl.get();
+        int rs = runStateOf(c);
+        if (rs >= SHUTDOWN && (rs >= STOP || workQueue.isEmpty())) {
+            decrementWorkerCount(); return null;
+        }
+        int wc = workerCountOf(c);
+        // ★ 是否受超时约束：当前总数 > core（或开了 allowCoreThreadTimeOut）
+        boolean timed = allowCoreThreadTimeOut || wc > corePoolSize;
+        // ★ 已超时 + (超上限 或 队列空) → CAS 减计数 + 返回 null
+        if ((wc > maximumPoolSize || (timed && timedOut))
+            && (wc > 1 || workQueue.isEmpty())) {
+            if (compareAndDecrementWorkerCount(c)) return null;
+            continue;
+        }
+        try {
+            // ★ timed → poll 限时；!timed → take 永久阻塞
+            Runnable r = timed ?
+                workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
+                workQueue.take();
+            if (r != null) return r;
+            timedOut = true;        // poll 超时返回 null
+        } catch (InterruptedException retry) { timedOut = false; }
+    }
+}
+```
+
+**机制拆解**：
+1. **`timed = allowCoreThreadTimeOut || wc > corePoolSize`** —— 看的是池的**当前线程总数 `wc`**，不是这个 worker 的"身份"。`wc=8, core=5` → 8 个 worker **全部** `timed=true`（不是只"那 3 个非核心"约束）。
+2. **`poll(keepAliveTime)` vs `take()`**：
+   - `poll` 最多等 keepAliveTime，超时返回 **null**。
+   - `take` 队列空时**永久阻塞**——这就是"核心线程不死"的真相。
+3. **`poll` 返回 null → `timedOut=true`** → 下一轮 for 走 `timed && timedOut` 分支 → **CAS 减计数 + return null** → runWorker while 退出 → `processWorkerExit`：
+   - `workers.remove(w)` 真正移除 worker。
+   - ctl -1。
+   - 视情况补 worker（低于 core 或队列还有任务但 worker=0）。
+4. **回收的"平等竞争"**：`wc > core` 时所有 worker 都 `poll`，**谁先超时谁先死**；`wc` 降到 `core` 后剩余 worker 切回 `take()` 不再超时——"剩余的 core 个核心线程"就此稳态。不是挑"非核心"的回收。
+
+**`allowCoreThreadTimeOut(true)`**：`timed` 恒真 → 所有 worker 永远 `poll` → 即使 `wc ≤ core` 空闲超 keepAliveTime 也会被回收到 **0**。适合流量波动大、空闲不想占内存的场景。默认 false（核心线程常驻）。
+
+**生命周期图**：
+```
+wc > core (timed=true):
+  getTask() → poll(keepAliveTime)
+    拿到任务 → return task → runWorker 跑 → 继续循环
+    超时 → timedOut=true → 下一轮 CAS decrement → return null
+                                ↓
+  runWorker while 退出 → processWorkerExit:
+    workers.remove(w) + ctl-1 + 视情况补
+                                ↓
+  Worker.run() 返回 → 线程对象死亡
+
+wc == core (timed=false, 默认 allowCoreThreadTimeOut=false):
+  getTask() → take()  ← 队列空时永久阻塞等任务（核心线程不死）
+```
+
+### 异常与替换
 - **异常处理**：`task.run()` 抛异常会被吞掉（除非重写 `afterExecute`），**且会导致 worker 退出并被新建替代**（这就是为什么异常会"丢"但池还活着）。
 
 ### 阻塞队列选择
@@ -91,8 +155,10 @@ timestamp: 2026-05-26
 - 以为核心线程一定不回收 → `allowCoreThreadTimeOut(true)` 可回收。
 - 任务异常被静默吞掉 → 重写 `afterExecute` 捕获，或用 `FutureTask` 提交（`get()` 会重抛）。
 - 以为先创建非核心线程 → 错，是 core→queue→non-core→reject。
-
-## 延伸
+- 以为"非核心线程"是创建时打的标签 → 不是，所有 Worker 同类，靠运行时 `wc > core` 动态判定 timed。
+- 以为回收是定时器触发 → 不是，是 `poll(keepAliveTime)` 阻塞超时返回 null 触发，纯靠阻塞队列 API。
+- 以为回收是挑"非核心的"回收 → 不是，`wc > core` 时所有 worker 平等竞争，谁 poll 先超时谁死。
+- 忘 `processWorkerExit` → `getTask` 返回 null 只是让循环退出，真正移除 worker 是这步。
 
 ## 延伸
 
