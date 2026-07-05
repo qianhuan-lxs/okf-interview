@@ -29,6 +29,7 @@
 | [协程池 / 虚拟线程池 (该不该用 + 限流 + 与线程池配合)](concurrency/virtual-thread-pool-antipattern.md) | hard | coroutine, virtual-thread, thread-pool, antipattern, semaphore, java, kotlin, go, python |
 | [基于 AQS 的同步器逐一介绍 (Lock/RWLock/Semaphore/CountDownLatch/CyclicBarrier/Worker)](concurrency/aqs-based-synchronizers.md) | hard | aqs, reentrantlock, readwritelock, semaphore, countdownlatch, cyclicbarrier, juc, concurrency |
 | [死锁四条件 + 排查 + 避免](concurrency/deadlock-detection-prevention.md) | medium | deadlock, jstack, lock-ordering, concurrency |
+| [线程池参数怎么设 (7 参数 / CPU-IO 公式 / 队列 / 拒绝策略 / 动态调参 / 陷阱)](concurrency/threadpool-parameter-tuning.md) | hard | thread-pool, threadpool, tuning, cpu-bound, io-bound, queue, reject-policy, monitoring, java |
 | [线程池运行原理 (ctl 高低位 / execute 流程 / Worker / 钩子)](concurrency/thread-pool-principles.md) | hard | thread-pool, juc, threadpoolexecutor, concurrency |
 
 ## 被引用 (cited by)
