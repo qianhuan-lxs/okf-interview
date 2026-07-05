@@ -21,5 +21,6 @@
 - [[databases/redis/redis-cache-avalanche]] — 缓存雪崩 / 穿透 / 击穿
 - [[databases/redis/redis-distributed-architecture]] — Redis 分布式架构 (主从 / 哨兵 / Cluster)
 - [[ml-ai/mcp/mcp-gateway-architecture]] — MCP 网关架构 (鉴权 / 限流 / 降级 / 缓存 / Tool 注册)
+- [[networks/okhttpclient-design]] — OkHttpClient 设计 (拦截器链 / 连接池 / Dispatcher / Okio)
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->
