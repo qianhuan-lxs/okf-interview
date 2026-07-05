@@ -78,15 +78,50 @@ AQS 的 `state` 修改、`ConcurrentHashMap` 空槽插入、`LongAdder` 的 Cell
 
 > 新手要点：**ABA 不是值错了，是"中间过程"丢了**。值类的计数器 ABA 通常无害（值对就行），但**指针/引用型的数据结构**会真出问题。
 
-## 六、高并发下 CAS 为什么反而差
+## 六、高并发下 CAS 为什么反而差 + "重试有没有上限"
 
-- CAS 失败就自旋重试 → 高竞争下大量线程同时 CAS 同一字段，只有一个成功，其余空转耗 CPU。
-- 极端情况吞吐比 synchronized 还差（锁至少排队不空转）。
+### 现象
+CAS 失败就自旋重试 → 高竞争下大量线程同时 CAS 同一字段，只有一个成功，其余空转耗 CPU。极端情况吞吐比 synchronized 还差（锁至少排队不空转）。
 
-### 解法
-- **`LongAdder`**：把一个热点字段拆成 `base + Cell[]`，线程 hash 到不同 Cell 各自 CAS，`sum()` 求和。热点分散，吞吐数倍于 `AtomicLong`。代价：`sum()` 非精确瞬时值。
-- **自旋退避**：限制重试次数、`Thread.onSpinWait()`（JDK 9+，x86 发 `PAUSE` 指令降功耗防乱序）。
-- **极高竞争用锁更优**：synchronized 升级到重量锁后 park 阻塞，不空转。
+### 那 `AtomicInteger.incrementAndGet` 重试有没有上限？
+**没有**。看源码就是无限 `do-while`：
+```java
+public final int incrementAndGet() {
+    int cur, next;
+    do {
+        cur = get();
+        next = cur + 1;
+    } while (!compareAndSet(cur, next));   // 失败就重来，无次数上限
+    return next;
+}
+```
+**理论上一根线程可能一直输**——每轮都被别人抢先。但这引出两个正式概念：
+
+| 概念 | 定义 | `AtomicInteger` 是吗 |
+| --- | --- | --- |
+| **lock-free（无锁）** | 系统整体总在前进——每轮至少有一个线程 CAS 成功 | ✅ 是 |
+| **wait-free（无等待）** | 每个线程都在**有界步**内完成——单线程不饿死 | ❌ 不是 |
+
+所以精确回答"会不会一直失败"：
+- **系统层面不会停**：每轮必有 1 个线程赢，系统前进。
+- **单线程可能持续失败**：lock-free **不保证**单线程有界完成，理论上某线程可被饿死。实际中赢的线程退出后竞争减少，很难真持续，但**JVM 不给你这个保证**。
+
+### 工程上怎么"限"重试（关键）
+
+| 做法 | 谁用 | 说明 |
+| --- | --- | --- |
+| **纯自旋无上限** | `AtomicInteger/Long/Reference` 的 `getAndAdd` 等 | 极简，赌低竞争 |
+| **自旋 + park 阻塞** | **AQS**（`acquireQueued`）、`ReentrantLock`、`Semaphore` | CAS 改 state 失败 → 入 CLH 队 → `LockSupport.park` 挂起，**不空转**。这是"自旋有限"的关键模式 |
+| **分散热点** | **`LongAdder`**（base + Cell[]）、`Striped64` | 不让 N 线程 CAS 同一字段，hash 到不同 Cell |
+| **退避 backoff** | 手写代码：失败 N 次后 `Thread.yield()` / 短 sleep / 指数退避 | 无内置 API，需自己加 |
+| **`Thread.onSpinWait()`** (JDK9+) | 提示 CPU 发 `PAUSE` 指令 | ⚠️ **只是功耗/乱序提示，不是次数限制**——常被误解 |
+| **CAS 失败退化为锁** | `ConcurrentHashMap` 1.8 链表头插入 / `computeIfAbsent` | CAS 抢 bin 头失败 → `synchronized` 锁该 bin |
+
+### 高竞争的正确姿势不是"重试更狠"，是换策略
+- **计数器** → `LongAdder`（分散热点，吞吐数倍于 `AtomicLong`，代价 `sum()` 非精确瞬时值）。
+- **复合状态竞争** → AQS / 锁（自旋一阵就 park，不空转耗 CPU）。
+- **极端兜底** → synchronized 重量锁（park 阻塞，吞吐未必差）。
+- 想限重试 → 自己在 CAS 循环外加计数器 + `Thread.yield()`/退避。
 
 ## 七、CAS 和 volatile 的关系（易混）
 - `AtomicInteger.value` 是 **volatile** → 保证读的可见性。
@@ -103,14 +138,14 @@ AQS 的 `state` 修改、`ConcurrentHashMap` 空槽插入、`LongAdder` 的 Cell
 | ABA 何时真有害？ | 引用/指针型数据结构（无锁栈、链表）；纯计数器通常无害。 |
 | `i++` 加 volatile 行吗？ | 不行，volatile 不保证原子；用 `AtomicInteger` 或锁。 |
 | 高并发计数器选什么？ | `LongAdder`（远优于 `AtomicLong`）。 |
+| CAS 重试有上限吗？ | 纯 `Atomic*` 无上限（无限 do-while）；AQS 是自旋后 park；想限要自己加 backoff。 |
+| `AtomicInteger` 是 wait-free 吗？ | 不是，是 lock-free。系统前进但单线程理论可饿死。 |
 
 ## 易错点
 - 把 CAS 当万能 → 高竞争退化为自旋空耗。
 - 以为 `AtomicReference` 防 ABA → 不能，要用 `AtomicStampedReference`。
 - `i++` 用 volatile 想原子 → 不行，复合操作。
 - `LongAdder.sum()` 当精确快照 → 它是估算求和，期间 Cell 仍在变。
-
-## 延伸
 
 ## 延伸
 
