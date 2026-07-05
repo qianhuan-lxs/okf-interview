@@ -13,6 +13,7 @@
 
 ## 被引用 (cited by)
 
+- [[algorithms/trees-graphs/red-black-tree]] — 红黑树 (5 性质/旋转着色/为什么不用 AVL/HashMap 树化)
 - [[backend/microservices/spring-boot-autoconfig]] — Spring Boot 自动配置原理
 - [[backend/microservices/spring-webflux]] — Spring WebFlux (Reactor/Mono/Flux/Netty/背压 + 2026 vs 虚拟线程)
 - [[backend/microservices/tomcat-servlet-thread-pool]] — Tomcat Servlet 线程池 (acceptCount/maxConnections/maxThreads/TaskQueue/NIO)

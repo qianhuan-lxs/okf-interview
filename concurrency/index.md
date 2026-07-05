@@ -34,6 +34,9 @@
 
 ## 被引用 (cited by)
 
+- [[algorithms/heap/heap-data-structure]] — 二叉堆 (堆化/堆排序/Top-K/Java PriorityQueue)
+- [[algorithms/linked-lists/lru-cache-implementation]] — LRU 缓存 (HashMap+双向链表/Java LinkedHashMap/LFU 对比)
+- [[algorithms/linked-lists/skip-list]] — 跳表 (Skip List) (结构/概率平衡/Redis Zset/为什么不用红黑树)
 - [[backend/microservices/microservice-user-context-propagation]] — 微服务跨服务用户上下文传递 (设计题)
 - [[backend/microservices/spring-webflux]] — Spring WebFlux (Reactor/Mono/Flux/Netty/背压 + 2026 vs 虚拟线程)
 - [[backend/microservices/tomcat-servlet-thread-pool]] — Tomcat Servlet 线程池 (acceptCount/maxConnections/maxThreads/TaskQueue/NIO)

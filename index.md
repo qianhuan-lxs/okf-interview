@@ -4,7 +4,7 @@
 
 | 目录 | 题目数 |
 | --- | --- |
-| [`algorithms`](./algorithms/index.md) | 2 |
+| [`algorithms`](./algorithms/index.md) | 10 |
 | [`backend`](./backend/index.md) | 10 |
 | [`behavioral`](./behavioral/index.md) | 11 |
 | [`concurrency`](./concurrency/index.md) | 27 |

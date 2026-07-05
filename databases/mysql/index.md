@@ -18,6 +18,8 @@
 
 ## 被引用 (cited by)
 
+- [[algorithms/trees-graphs/b-tree-vs-bplus-tree]] — B 树 vs B+ 树 (高扇出/磁盘 IO/为什么数据库用 B+ 树)
+- [[algorithms/trees-graphs/red-black-tree]] — 红黑树 (5 性质/旋转着色/为什么不用 AVL/HashMap 树化)
 - [[distributed-systems/2pc-3pc-protocol]] — 2PC / 3PC / XA 协议 (协调者 / prepare / 阻塞问题 / 3PC 解决了什么)
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->
