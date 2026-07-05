@@ -35,6 +35,7 @@
 ## 被引用 (cited by)
 
 - [[backend/microservices/microservice-user-context-propagation]] — 微服务跨服务用户上下文传递 (设计题)
+- [[backend/microservices/spring-webflux]] — Spring WebFlux (Reactor/Mono/Flux/Netty/背压 + 2026 vs 虚拟线程)
 - [[backend/microservices/tomcat-servlet-thread-pool]] — Tomcat Servlet 线程池 (acceptCount/maxConnections/maxThreads/TaskQueue/NIO)
 - [[distributed-systems/distributed-lock-redis-vs-zk]] — 分布式锁 (Redis vs ZK)
 - [[languages/java/hashmap-vs-concurrenthashmap]] — HashMap vs ConcurrentHashMap

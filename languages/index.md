@@ -14,6 +14,7 @@
 ## 被引用 (cited by)
 
 - [[backend/microservices/spring-boot-autoconfig]] — Spring Boot 自动配置原理
+- [[backend/microservices/spring-webflux]] — Spring WebFlux (Reactor/Mono/Flux/Netty/背压 + 2026 vs 虚拟线程)
 - [[backend/microservices/tomcat-servlet-thread-pool]] — Tomcat Servlet 线程池 (acceptCount/maxConnections/maxThreads/TaskQueue/NIO)
 - [[behavioral/八股-attitude-and-disliked-java]] — 八股态度 / Java 最讨厌的地方 / 设计模式偏好
 - [[concurrency/coroutine-virtual-thread-principle]] — 协程原理 (Java VT/Kotlin/Go/Python 对比 + mount-unmount + pinning)
