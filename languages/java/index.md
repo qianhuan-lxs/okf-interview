@@ -23,5 +23,7 @@
 
 - [[backend/microservices/spring-boot-autoconfig]] — Spring Boot 自动配置原理
 - [[behavioral/八股-attitude-and-disliked-java]] — 八股态度 / Java 最讨厌的地方 / 设计模式偏好
+- [[concurrency/coroutine-virtual-thread-principle]] — 协程原理 (Java VT/Kotlin/Go/Python 对比 + mount-unmount + pinning)
+- [[concurrency/virtual-thread-pool-antipattern]] — 协程池 / 虚拟线程池 (该不该用 + 限流 + 与线程池配合)
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

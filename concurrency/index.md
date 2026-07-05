@@ -25,6 +25,8 @@
 | [volatile 原理 (JMM / happens-before / 内存屏障 / DCL)](concurrency/volatile-principle.md) | hard | volatile, jmm, memory-barrier, happens-before, concurrency |
 | [乐观锁 vs 悲观锁](concurrency/optimistic-vs-pessimistic-lock.md) | easy | optimistic-lock, pessimistic-lock, cas, version |
 | [伪共享 false sharing 与 @Contended](concurrency/false-sharing-contended.md) | medium | false-sharing, contended, cache-line, concurrency, performance |
+| [协程原理 (Java VT/Kotlin/Go/Python 对比 + mount-unmount + pinning)](concurrency/coroutine-virtual-thread-principle.md) | hard | coroutine, virtual-thread, loom, kotlin, goroutine, asyncio, pinning, java, go, python, kotlin |
+| [协程池 / 虚拟线程池 (该不该用 + 限流 + 与线程池配合)](concurrency/virtual-thread-pool-antipattern.md) | hard | coroutine, virtual-thread, thread-pool, antipattern, semaphore, java, kotlin, go, python |
 | [基于 AQS 的同步器逐一介绍 (Lock/RWLock/Semaphore/CountDownLatch/CyclicBarrier/Worker)](concurrency/aqs-based-synchronizers.md) | hard | aqs, reentrantlock, readwritelock, semaphore, countdownlatch, cyclicbarrier, juc, concurrency |
 | [死锁四条件 + 排查 + 避免](concurrency/deadlock-detection-prevention.md) | medium | deadlock, jstack, lock-ordering, concurrency |
 | [线程池运行原理 (ctl 高低位 / execute 流程 / Worker / 钩子)](concurrency/thread-pool-principles.md) | hard | thread-pool, juc, threadpoolexecutor, concurrency |
