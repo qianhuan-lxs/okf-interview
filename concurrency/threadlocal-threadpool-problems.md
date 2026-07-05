@@ -50,8 +50,6 @@ timestamp: 2026-05-26
 
 ## 延伸
 
-## 延伸
-
 - 关联题：[[concurrency/threadlocal-usage-pitfalls]]
 - 关联题：[[concurrency/thread-pool-principles]]
 - 关联题：[[backend/microservices/microservice-user-context-propagation]]

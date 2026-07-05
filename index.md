@@ -7,13 +7,13 @@
 | [`algorithms`](./algorithms/index.md) | 2 |
 | [`backend`](./backend/index.md) | 8 |
 | [`behavioral`](./behavioral/index.md) | 11 |
-| [`concurrency`](./concurrency/index.md) | 7 |
+| [`concurrency`](./concurrency/index.md) | 20 |
 | [`databases`](./databases/index.md) | 15 |
 | [`devops`](./devops/index.md) | 5 |
 | [`distributed-systems`](./distributed-systems/index.md) | 9 |
 | [`frontend`](./frontend/index.md) | 3 |
 | [`languages`](./languages/index.md) | 10 |
-| [`ml-ai`](./ml-ai/index.md) | 32 |
+| [`ml-ai`](./ml-ai/index.md) | 33 |
 | [`networks`](./networks/index.md) | 1 |
 | [`operating-systems`](./operating-systems/index.md) | 0 |
 | [`system-design`](./system-design/index.md) | 3 |

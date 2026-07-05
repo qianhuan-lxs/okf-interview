@@ -10,7 +10,6 @@
 ## 被引用 (cited by)
 
 - [[concurrency/threadlocal-threadpool-problems]] — ThreadLocal 在线程池中的问题 (闭环追问)
-- [[concurrency/threadlocal-usage-pitfalls]] — ThreadLocal 使用场景与内存泄漏
 - [[databases/mysql/transaction-annotation-failure]] — 事务注解失效 / 代理层面失效解决
 - [[databases/redis/redis-cache-avalanche]] — 缓存雪崩 / 穿透 / 击穿
 - [[languages/java/template-method-pattern]] — 模板方法模式

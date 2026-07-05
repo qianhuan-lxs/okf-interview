@@ -11,6 +11,7 @@
 | [Multi-Agent 编排架构设计](ml-ai/agent/multi-agent-orchestration-architecture.md) | hard | multi-agent, orchestration, adk, langgraph, architecture |
 | [Skill 何时调用哪个 / 加载机制 (two-stage 路由)](ml-ai/agent/skill-loading-mechanism.md) | medium | skill, loading, routing, progressive-disclosure, framework |
 | [Skill 是什么 / 包含什么 / 为什么不只是 system prompt](ml-ai/agent/skill-what-and-why.md) | medium | skill, prompt-engineering, progressive-disclosure |
+| [Skill 的含义 / 加载机制 / 自进化](ml-ai/agent/skill-meaning-loading-evolution.md) | medium | skill, prompt-engineering, loading, self-evolution |
 | [Skill 自进化 / 自净化 (Hermes + GEPA)](ml-ai/agent/skill-self-evolution-hermes.md) | hard | skill, self-evolution, hermes, gepa, dspy, self-improving |
 | [多 Agent 常见架构有哪些](ml-ai/agent/multi-agent-common-architectures.md) | medium | multi-agent, architecture, taxonomy |
 | [并行 Agent 失败处理 (部分成功 vs 整体失败)](ml-ai/agent/parallel-agent-failure-handling.md) | medium | multi-agent, parallel, failure-handling, resilience |

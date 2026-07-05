@@ -42,7 +42,5 @@ WHERE id = ? AND version = ?;
 
 ## 延伸
 
-## 延伸
-
 - 关联题：[[concurrency/cas-mechanism]]
 - 关联题：[[distributed-systems/distributed-lock-redis-vs-zk]]
