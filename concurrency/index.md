@@ -13,6 +13,7 @@
 | [Executors 内置线程池设计 (Fixed/Cached/Single/Scheduled/WorkStealing)](concurrency/executors-built-in-pools.md) | hard | executors, thread-pool, fixed, cached, scheduled, workstealing, juc |
 | [ForkJoinPool 工作窃取 + parallelStream 坑](concurrency/forkjoinpool-parallelstream.md) | medium | forkjoinpool, work-stealing, parallelstream, juc, concurrency |
 | [JMM 与 happens-before 八大原则](concurrency/jmm-happens-before.md) | hard | jmm, happens-before, memory-model, concurrency, java |
+| [JUC 并发队列族 (BlockingQueue / BlockingDeque / 无锁队列设计)](concurrency/juc-concurrent-queues.md) | hard | blockingqueue, linkedblockingdeque, concurrentlinkedqueue, juc, data-structure, concurrency |
 | [LockSupport.park / unpark 原理 (vs wait/notify)](concurrency/locksupport-park-unpark.md) | medium | locksupport, park, unpark, concurrency, juc |
 | [LongAdder vs AtomicLong (分段累加 Cell)](concurrency/longadder-vs-atomiclong.md) | medium | longadder, atomiclong, cas, juc, concurrency |
 | [ReentrantReadWriteLock / StampedLock (读写锁 + 乐观读)](concurrency/readwritelock-stampedlock.md) | hard | readwritelock, stampedlock, aqs, optimistic-read, concurrency |

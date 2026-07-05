@@ -7,7 +7,7 @@
 | [`algorithms`](./algorithms/index.md) | 2 |
 | [`backend`](./backend/index.md) | 8 |
 | [`behavioral`](./behavioral/index.md) | 11 |
-| [`concurrency`](./concurrency/index.md) | 23 |
+| [`concurrency`](./concurrency/index.md) | 24 |
 | [`databases`](./databases/index.md) | 15 |
 | [`devops`](./devops/index.md) | 5 |
 | [`distributed-systems`](./distributed-systems/index.md) | 9 |
