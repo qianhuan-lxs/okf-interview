@@ -35,6 +35,7 @@
 ## 被引用 (cited by)
 
 - [[backend/microservices/microservice-user-context-propagation]] — 微服务跨服务用户上下文传递 (设计题)
+- [[backend/microservices/tomcat-servlet-thread-pool]] — Tomcat Servlet 线程池 (acceptCount/maxConnections/maxThreads/TaskQueue/NIO)
 - [[distributed-systems/distributed-lock-redis-vs-zk]] — 分布式锁 (Redis vs ZK)
 - [[languages/java/hashmap-vs-concurrenthashmap]] — HashMap vs ConcurrentHashMap
 - [[languages/java/jvm-memory-structure]] — JVM 内存结构 (堆/元空间/栈/直接内存 + JDK8 永久代消失)
