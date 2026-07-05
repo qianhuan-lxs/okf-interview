@@ -6,7 +6,7 @@
 | --- | --- |
 | [`cpp`](./cpp/index.md) | 0 |
 | [`go`](./go/index.md) | 0 |
-| [`java`](./java/index.md) | 10 |
+| [`java`](./java/index.md) | 14 |
 | [`javascript`](./javascript/index.md) | 0 |
 | [`python`](./python/index.md) | 0 |
 | [`rust`](./rust/index.md) | 0 |

@@ -34,7 +34,9 @@
 - [[backend/microservices/microservice-user-context-propagation]] — 微服务跨服务用户上下文传递 (设计题)
 - [[distributed-systems/distributed-lock-redis-vs-zk]] — 分布式锁 (Redis vs ZK)
 - [[languages/java/hashmap-vs-concurrenthashmap]] — HashMap vs ConcurrentHashMap
-- [[languages/java/jvm-oom-analysis]] — OOM 分析过程
+- [[languages/java/jvm-memory-structure]] — JVM 内存结构 (堆/元空间/栈/直接内存 + JDK8 永久代消失)
+- [[languages/java/jvm-object-layout-jit]] — 对象内存布局 + JIT 执行引擎 (MarkWord/指针压缩/C1C2/逃逸分析)
+- [[languages/java/jvm-oom-analysis]] — OOM 分析 (7 种类型 / 排查流程 / 工具 / 容器)
 - [[networks/okhttpclient-design]] — OkHttpClient 设计 (拦截器链 / 连接池 / Dispatcher / Okio)
 
 <!-- 由 `tools/okf.py gen-index` 自动生成，请勿手动编辑正文。 -->

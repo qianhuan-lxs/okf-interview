@@ -12,7 +12,7 @@
 | [`devops`](./devops/index.md) | 5 |
 | [`distributed-systems`](./distributed-systems/index.md) | 9 |
 | [`frontend`](./frontend/index.md) | 3 |
-| [`languages`](./languages/index.md) | 10 |
+| [`languages`](./languages/index.md) | 14 |
 | [`ml-ai`](./ml-ai/index.md) | 32 |
 | [`networks`](./networks/index.md) | 2 |
 | [`operating-systems`](./operating-systems/index.md) | 0 |
